@@ -24,14 +24,12 @@ public class Main {
 				strArray = tmpStr.split(" |-");
 				for(String s: strArray)
 				{
-					if(s.matches(".*\\d.*")) continue;
-					if(!s.endsWith(".") && s.contains(".")) continue;
-					if(s.contains("_")) continue;
-					if(!s.endsWith("?") && s.contains("?")) continue;
-					if(!s.endsWith("!") && s.contains("!")) continue;
-					if(s.isEmpty()) continue;
-					p = new Pair(trim(s.trim()), 1);
-					list.add(p);
+					if(s.matches("[a-zA-Z]*[!|?|.]?"))
+					{
+						if(s.isEmpty()) continue;
+						p = new Pair(trim(s.trim()), 1);
+						list.add(p);
+					}
 				}
 			}
 		} catch (FileNotFoundException e) {
