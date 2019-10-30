@@ -1,4 +1,4 @@
-package homework.w1d2;
+package homework.w1d2.partB;
 
 import java.util.ArrayList;
 import java.util.List;

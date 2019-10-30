@@ -1,4 +1,4 @@
-package homework.w1d2;
+package homework.w1d2.partB;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,7 +35,7 @@ public class WordCount {
 			}
 			i = 0;
 			for (Reducer r : rList) {
-				System.out.println("Reducer " + (i++) + " input");
+				System.out.println("Reducer " + (i) + " input");
 				r.printRInput();
 				System.out.println("Reducer " + (i++) + " output");
 				r.print();
