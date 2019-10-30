@@ -22,9 +22,6 @@ public class Reducer {
 		else {
 			list.get(list.indexOf(gbp)).add(p.getValue());
 		}
-		for (GroupByPair g : list) {
-			reducedList.add(new Pair(g.getKey(), g.getValues().size()));
-		}
 	}
 
 	public void printRInput() {
@@ -33,6 +30,9 @@ public class Reducer {
 	}
 
 	public void print() {
+		for (GroupByPair g : list) {
+			reducedList.add(new Pair(g.getKey(), g.getValues().size()));
+		}
 		for (Pair p : reducedList)
 			System.out.println(p);
 	}

@@ -8,14 +8,13 @@ import homework.w1d1.Pair;
 
 public class Mapper {
 	private List<Pair> list = new ArrayList<Pair>();
-	public Mapper(String lines)
+	public Mapper(String line)
 	{
 		String[] strArray;
-		String tmpStr = "";
 		Pair p;
 		try
 		{
-			strArray = tmpStr.split(" |-");
+			strArray = line.split(" |-");
 				for(String s: strArray)
 				{
 					if(s.matches("[a-zA-Z]*[!|?|.|\"]?"))
