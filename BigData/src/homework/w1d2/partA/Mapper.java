@@ -12,7 +12,12 @@ import homework.w1d1.Pair;
 
 public class Mapper {
 	private List<Pair> list = new ArrayList<Pair>();
-	public List<Pair> map(String url)
+	private String url = "";
+	public Mapper(String url)
+	{
+		this.url = url;
+	}
+	public List<Pair> map()
 	{
 		File file = new File(url);
 		String[] strArray;
