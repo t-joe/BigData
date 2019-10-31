@@ -6,6 +6,7 @@ import java.util.List;
 import homework.w1d1.Pair;
 
 public class Reducer {
+	List<Pair> iList = new ArrayList<Pair>();
 	List<GroupByPair> list = new ArrayList<GroupByPair>();
 	List<Pair> reducedList = new ArrayList<Pair>();
 
@@ -13,6 +14,7 @@ public class Reducer {
 		GroupByPair gbp;
 		Pair tmpP;
 		int sum  = 0;
+		iList.add(p);
 		gbp = new GroupByPair(p.getKey(), p.getValue());
 		if (!list.contains(gbp))
 			list.add(gbp);
@@ -32,6 +34,11 @@ public class Reducer {
 		}
 	}
 
+	public void printParams()
+	{
+		for (Pair p : iList)
+			System.out.println(p);
+	}
 	public void printRInput() {
 		for (GroupByPair g : list)
 			System.out.println(g);

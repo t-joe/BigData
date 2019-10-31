@@ -1,20 +1,27 @@
-package homework.w1d2.partB;
+package homework.w1d1;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
-
-import homework.w1d1.Pair;
 
 public class Mapper {
 	private List<Pair> list = new ArrayList<Pair>();
-	public Mapper(String line)
+	public Mapper(String url)
 	{
+		File file = new File(url);
 		String[] strArray;
+		String tmpStr = "";
 		Pair p;
-		try
+		try(Scanner sc = new Scanner(file, StandardCharsets.UTF_8.name()))
 		{
-			strArray = line.split(" |-");
+			while (sc.hasNextLine()){
+				tmpStr = sc.nextLine();
+				strArray = tmpStr.split(" |-");
 				for(String s: strArray)
 				{
 					if(s.matches("[a-zA-Z]*[!|?|.|\"]?"))
@@ -24,7 +31,8 @@ public class Mapper {
 						list.add(p);
 					}
 				}
-		} catch (Exception e) {
+			}
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -42,4 +50,5 @@ public class Mapper {
 	{
 		return this.list;
 	}
+	Comparator<? super Pair> func = (ob1, ob2) -> ob1.compareTo(ob2);
 }

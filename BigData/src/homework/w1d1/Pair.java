@@ -1,6 +1,6 @@
 package homework.w1d1;
 
-public class Pair implements Comparable{
+public class Pair implements Comparable<Pair>{
 	private String key;
 	private int value;
 	public Pair(String key, int value)
@@ -26,9 +26,21 @@ public class Pair implements Comparable{
 		return "( " + key + ", " + value + ")"; 
 	}
 
+	public String getKey()
+	{
+		return this.key;
+	}
+	public int getValue()
+	{
+		return this.value;
+	}
+	public void setValue(int val)
+	{
+		this.value = val;
+	}
+
 	@Override
-	public int compareTo(Object o) {
-		Pair p = (Pair) o;
-		return this.key.compareToIgnoreCase(p.key);
+	public int compareTo(Pair o) {
+		return this.key.compareToIgnoreCase(o.key);
 	}
 }
