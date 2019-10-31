@@ -48,15 +48,14 @@ public class WordCount {
 		i = 0;
 		for (List<List<Pair>> mppp : wc.mapperToReducerOutput) {
 			j = 0;
-			for(List<Pair> lp: mppp)
-			{
+			for (List<Pair> lp : mppp) {
 				System.out.println("Pairs sent from Mapper" + i + " to Reducer " + j++);
 				for (Pair p1 : lp)
 					System.out.println(p1);
 			}
 			i++;
 		}
-		
+
 		i = 0;
 		for (Reducer r : wc.rList) {
 			System.out.println("Reducer" + i++ + " input");
