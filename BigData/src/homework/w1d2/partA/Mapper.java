@@ -30,7 +30,7 @@ public class Mapper {
 				strArray = tmpStr.split(" |-");
 				for(String s: strArray)
 				{
-					if(s.matches("[a-zA-Z]*[!|?|.|\"]?"))
+					if(s.matches("[\"|\']?[a-zA-Z]*[!|?|.|\"\']?"))
 					{
 						if(s.isEmpty()) continue;
 						p = new Pair(trim(s.trim()), 1);
@@ -47,9 +47,9 @@ public class Mapper {
 	}
 	public static String trim(String str)
 	{
-		if(str.endsWith("\"") || str.endsWith("?") || str.endsWith("!") || str.endsWith("."))
+		if(str.endsWith("\"") || str.endsWith("?") || str.endsWith("!") || str.endsWith(".") || str.endsWith("\'"))
 			str = str.substring(0, str.length() - 1);
-		if(str.startsWith("\""))
+		if(str.startsWith("\"") || str.startsWith("\'"))
 			str = str.substring(1);
 		return str;
 	}

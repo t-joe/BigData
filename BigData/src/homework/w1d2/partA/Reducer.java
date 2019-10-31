@@ -2,43 +2,51 @@ package homework.w1d2.partA;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import homework.w1d1.Pair;
 
 public class Reducer {
-	List<Pair> iList = new ArrayList<Pair>();
-	List<GroupByPair> list = new ArrayList<GroupByPair>();
-	List<Pair> reducedList = new ArrayList<Pair>();
+	//List<PairByPair> iList;
+	List<GroupByPair> list;
+	List<Pair> reducedList;
+
+	public Reducer() {
+		//iList = new ArrayList<Pair>();
+		list = new ArrayList<GroupByPair>();
+		reducedList = new ArrayList<Pair>();
+	}
 
 	public void reduce(Pair p) {
 		GroupByPair gbp;
 		Pair tmpP;
-		int sum  = 0;
-		iList.add(p);
+		int sum = 0;
+		//iList.add(new PairByPair(p, mapperName));
 		gbp = new GroupByPair(p.getKey(), p.getValue());
 		if (!list.contains(gbp))
 			list.add(gbp);
 		else {
 			list.get(list.indexOf(gbp)).add(p.getValue());
 		}
-		for(GroupByPair g: list)
-		{
+		for (GroupByPair g : list) {
 			sum = 0;
-			for(int i: g.getValues())
+			for (int i : g.getValues())
 				sum += i;
 			tmpP = new Pair(g.getKey(), sum);
-			if(reducedList.contains(tmpP))
+			if (reducedList.contains(tmpP))
 				reducedList.get(reducedList.indexOf(tmpP)).setValue(sum);
 			else
 				reducedList.add(tmpP);
 		}
 	}
 
-	public void printParams()
-	{
-		for (Pair p : iList)
-			System.out.println(p);
-	}
+//	public void printParams(String mapperName) {
+//		for (PairByPair p : iList)
+//			if (mapperName != null) {
+//				if (p.getMapperName().equalsIgnoreCase(mapperName))
+//					System.out.println(p.getPair());
+//			} else
+//				System.out.println(p.getPair());
+//	}
+
 	public void printRInput() {
 		for (GroupByPair g : list)
 			System.out.println(g);
